@@ -44,6 +44,7 @@
       </geometry>
     </collision>
   </link>
+
   <link
     name="opencr_link">
     <inertial>
@@ -84,6 +85,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="opencr_joint"
     type="fixed">
@@ -97,6 +99,7 @@
     <axis
       xyz="0 0 0" />
   </joint>
+
   <link
     name="lidar_link">
     <inertial>
@@ -137,6 +140,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="lidar_joint"
     type="fixed">
@@ -150,6 +154,7 @@
     <axis
       xyz="0 0 0" />
   </joint>
+
   <link
     name="camera_link">
     <inertial>
@@ -190,6 +195,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="camera_joint"
     type="fixed">
@@ -203,6 +209,7 @@
     <axis
       xyz="0 0 0" />
   </joint>
+
   <link
     name="left_wheel_link">
     <inertial>
@@ -243,6 +250,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="left_wheel_joint"
     type="continuous">
@@ -256,6 +264,7 @@
     <axis
       xyz="0 0 1" />
   </joint>
+
   <link
     name="right_wheel_link">
     <inertial>
@@ -296,6 +305,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="right_wheel_joint"
     type="continuous">
@@ -309,6 +319,7 @@
     <axis
       xyz="0 0 1" />
   </joint>
+
   <link
     name="front_link">
     <inertial>
@@ -349,6 +360,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="front_joint"
     type="revolute">
@@ -363,10 +375,11 @@
       xyz="1 0 0" />
     <limit
       lower="0"
-      upper="0"
+      upper="2.000321"
       effort="0"
       velocity="0" />
   </joint>
+
   <link
     name="feed_link">
     <inertial>
@@ -407,6 +420,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="feed_joint"
     type="revolute">
@@ -420,11 +434,12 @@
     <axis
       xyz="0 0 1" />
     <limit
-      lower="0"
+      lower="-0.802851"
       upper="0"
       effort="0"
       velocity="0" />
   </joint>
+
   <link
     name="back_link">
     <inertial>
@@ -465,6 +480,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint
     name="back_joint"
     type="revolute">
@@ -478,9 +494,10 @@
     <axis
       xyz="1 0 0" />
     <limit
-      lower="0"
+      lower="-1.570796"
       upper="0"
       effort="0"
       velocity="0" />
   </joint>
+
 </robot>
