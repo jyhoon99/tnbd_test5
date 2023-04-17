@@ -4,6 +4,15 @@
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot
   name="tnbd_proto5">
+  
+  <link name="base_footprint"/>
+
+  <joint name="base_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link" />
+    <origin xyz="-0.0132838481327496 -0.0190930870578007 -0.0165104491009677" rpy="0 0 0"/>
+  </joint>
+  
   <link
     name="base_link">
     <inertial>
@@ -20,6 +29,7 @@
         iyz="-0.000165763768209665"
         izz="0.00921433640228063" />
     </inertial>
+
     <visual>
       <origin
         xyz="0 0 0"
@@ -34,6 +44,7 @@
           rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
       </material>
     </visual>
+
     <collision>
       <origin
         xyz="0 0 0"
@@ -46,7 +57,7 @@
   </link>
 
   <link
-    name="opencr_link">
+    name="imu_link">
     <inertial>
       <origin
         xyz="0.0181792859189744 -0.0180446037108739 -0.00915949193269541"
@@ -87,7 +98,7 @@
   </link>
 
   <joint
-    name="opencr_joint"
+    name="imu_joint"
     type="fixed">
     <origin
       xyz="0 0 0"
@@ -95,13 +106,13 @@
     <parent
       link="base_link" />
     <child
-      link="opencr_link" />
+      link="imu_link" />
     <axis
       xyz="0 0 0" />
   </joint>
 
   <link
-    name="lidar_link">
+    name="base_scan">
     <inertial>
       <origin
         xyz="1.33939688298779E-08 1.11156738327733E-09 0.0293857857356866"
@@ -142,7 +153,7 @@
   </link>
 
   <joint
-    name="lidar_joint"
+    name="scan_joint"
     type="fixed">
     <origin
       xyz="-0.035043 0.0083315 0.077"
@@ -150,7 +161,7 @@
     <parent
       link="base_link" />
     <child
-      link="lidar_link" />
+      link="base_scan" />
     <axis
       xyz="0 0 0" />
   </joint>
@@ -211,7 +222,7 @@
   </joint>
 
   <link
-    name="left_wheel_link">
+    name="wheel_left_link">
     <inertial>
       <origin
         xyz="6.93889390390723E-18 1.04083408558608E-16 0.0145"
@@ -226,6 +237,7 @@
         iyz="1.72887652250329E-19"
         izz="0.00103898710950625" />
     </inertial>
+
     <visual>
       <origin
         xyz="0 0 0"
@@ -240,6 +252,7 @@
           rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
       </material>
     </visual>
+    
     <collision>
       <origin
         xyz="0 0 0"
@@ -252,7 +265,7 @@
   </link>
 
   <joint
-    name="left_wheel_joint"
+    name="wheel_left_joint"
     type="continuous">
     <origin
       xyz="0.027457 -0.12147 -0.0339"
@@ -260,13 +273,13 @@
     <parent
       link="base_link" />
     <child
-      link="left_wheel_link" />
+      link="wheel_left_link" />
     <axis
       xyz="0 0 1" />
   </joint>
 
   <link
-    name="right_wheel_link">
+    name="wheel_right_link">
     <inertial>
       <origin
         xyz="-6.93889390390723E-18 1.38777878078145E-17 -0.0145000000000001"
@@ -307,7 +320,7 @@
   </link>
 
   <joint
-    name="right_wheel_joint"
+    name="wheel_right_joint"
     type="continuous">
     <origin
       xyz="0.027457 0.13813 -0.0339"
@@ -315,7 +328,7 @@
     <parent
       link="base_link" />
     <child
-      link="right_wheel_link" />
+      link="wheel_right_link" />
     <axis
       xyz="0 0 1" />
   </joint>
@@ -365,7 +378,7 @@
     name="front_joint"
     type="revolute">
     <origin
-      xyz="-0.15554 0 -0.06"
+      xyz="-0.15554 0 0"
       rpy="2.7278 0 -1.5708" />
     <parent
       link="base_link" />
